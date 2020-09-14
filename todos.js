@@ -1,6 +1,12 @@
 var listElement = document.querySelector('#app ul')
 var inputElement = document.querySelector('#app input')
 var buttonElement = document.querySelector('#app button')
+inputElement.addEventListener('keyup', function(e) {
+    var key = e.which || e.keyCode
+    if (key == 13) {
+        addTodo()
+    }
+})
 
 var todos = JSON.parse(localStorage.getItem('list_todos')) || []
 
@@ -9,10 +15,12 @@ function renderTodos() {
 
     for (todo of todos) {
         var todoElement = document.createElement('li')
+        todoElement.setAttribute('class', 'list-group-item')
         var todoText = document.createTextNode(todo)
 
         var linkElement = document.createElement('a')
         linkElement.setAttribute('href', '#')
+        linkElement.style.marginLeft = '10px'
 
         var pos = todos.indexOf(todo)
         linkElement.setAttribute('onclick', 'deleteTodo('+ pos +')')

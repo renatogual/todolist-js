@@ -1,0 +1,11 @@
+header {
+    margin: 5px;
+}
+
+div#app {
+    margin: 5px;
+}
+
+body {
+    background-color: rgba(128, 128, 128, 0.342);
+}
